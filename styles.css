@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif; /* استخدم خط Montserrat للجسم */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,18 +11,16 @@ body {
 
 .container {
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: transparent; /* اجعل الخلفية شفافة */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    max-width: 90%; /* Limit width to 90% of the screen */
-    overflow: hidden; /* Prevent overflow */
+    box-shadow: none; /* إزالة الظل */
 }
 
 h1 {
+    font-family: 'Playfair Display', serif; /* استخدم الخط الجديد للعناوين */
     font-size: 36px;
     margin-bottom: 10px;
-    font-family: 'Courier New', Courier, monospace; /* Different font */
 }
 
 .subtitle {
@@ -37,15 +35,16 @@ h1 {
 }
 
 .time-box {
-    background-color: rgba(255, 255, 255, 0.1); /* Light background for time boxes */
-    border: 2px solid white;
+    background-color: transparent; /* خلفية المربعات شفافة */
+    border: 2px solid black; /* حدود سوداء */
     border-radius: 10px;
     padding: 20px;
     margin: 10px;
-    flex: 1 1 80px; /* Flex property for responsive design */
-    min-width: 80px; /* Minimum width for boxes */
+    flex: 1 1 80px; /* مرونة التصميم */
+    min-width: 80px; /* الحد الأدنى للعرض */
     text-align: center;
     font-size: 24px;
+    color: white; /* لون الخط أبيض */
 }
 
 .label {
@@ -63,7 +62,7 @@ h1 {
         font-size: 16px;
     }
     .time-box {
-        flex: 1 1 60px; /* Adjust size for smaller screens */
-        font-size: 20px; /* Smaller font size */
+        flex: 1 1 60px; /* حجم المربعات على الشاشات الأصغر */
+        font-size: 20px; /* حجم خط أصغر */
     }
 }
