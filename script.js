@@ -1,28 +1,29 @@
-let startDate = new Date('2019-04-09T00:00:00');
+// Set the date we're counting down to
+const startDate = new Date("2019-04-09T00:00:00").getTime();
 
-function updateTimer() {
-    const now = new Date();
-    let elapsedTime = Math.floor((now - startDate) / 1000); // Time difference in seconds
+// Update the count down every 1 second
+const x = setInterval(function() {
 
-    let years = Math.floor(elapsedTime / 31536000);
-    elapsedTime %= 31536000;
-    let months = Math.floor(elapsedTime / 2592000);
-    elapsedTime %= 2592000;
-    let days = Math.floor(elapsedTime / 86400);
-    elapsedTime %= 86400;
-    let hours = Math.floor(elapsedTime / 3600);
-    elapsedTime %= 3600;
-    let minutes = Math.floor(elapsedTime / 60);
-    let seconds = elapsedTime % 60;
+    // Get today's date and time
+    const now = new Date().getTime();
 
-    document.getElementById('years').innerText = (years < 10 ? '0' : '') + years;
-    document.getElementById('months').innerText = (months < 10 ? '0' : '') + months;
-    document.getElementById('days').innerText = (days < 10 ? '0' : '') + days;
-    document.getElementById('hours').innerText = (hours < 10 ? '0' : '') + hours;
-    document.getElementById('minutes').innerText = (minutes < 10 ? '0' : '') + minutes;
-    document.getElementById('seconds').innerText = (seconds < 10 ? '0' : '') + seconds;
-}
+    // Calculate the distance between now and the start date
+    const distance = now - startDate;
 
-// Start the timer automatically
-setInterval(updateTimer, 1000);
-updateTimer(); // Update the time immediately on page load
+    // Time calculations for years, months, days, hours, minutes and seconds
+    const years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
+    const months = Math.floor((distance % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+    const days = Math.floor((distance % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in the elements
+    document.getElementById("years").innerHTML = years;
+    document.getElementById("months").innerHTML = months;
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
+}, 1000);
